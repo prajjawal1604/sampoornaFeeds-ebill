@@ -1,0 +1,451 @@
+/* InvoiceDetails.css */
+
+/* New wrapper for logo + title */
+.title-with-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.invoice-logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.invoice-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.invoice-container {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  padding: 2rem 1rem;
+}
+
+.invoice-wrapper {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* Header Styles
+.invoice-header {
+  text-align: center;
+  margin-bottom: 2rem;
+} */
+
+.invoice-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+.invoice-number {
+  color: #6b7280;
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Loading Skeleton */
+.loading-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skeleton-item {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.skeleton-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.skeleton-bar {
+  height: 1rem;
+  background-color: #e5e7eb;
+  border-radius: 0.25rem;
+}
+
+.skeleton-bar-left {
+  width: 6rem;
+}
+
+.skeleton-bar-right {
+  width: 5rem;
+}
+
+.skeleton-animate {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Error State */
+.error-container {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.error-title {
+  color: #991b1b;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+}
+
+.error-message {
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* Invoice Card */
+.invoice-card {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.invoice-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem;
+  gap: 1rem;
+}
+
+.invoice-row:not(:last-child) {
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.invoice-label {
+  font-weight: 700;           /* Make key bold */
+  color: #1f2937;             /* Darker for heading */
+  font-size: 1rem;
+  flex-shrink: 0;
+  min-width: 140px;
+  line-height: 1.5;
+  text-align: left;      /* Align key to left */
+}
+
+.invoice-value {
+  font-size: 1rem;
+  font-weight: 400;           /* Normal weight for value */
+  text-align: right;     /* Align value to right */
+  flex: 1;
+  word-break: break-all;
+  line-height: 1.5;
+}
+
+.invoice-value-default {
+  color: #6b7280;             /* Secondary color for value */
+  font-weight: 400;
+}
+
+.invoice-value-amount {
+  color: #059669;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.invoice-value-empty {
+  color: #9ca3af;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Pay Button
+.pay-button {
+  width: 100%;
+  background-color: #28A745;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  font-size: 1.125rem;
+  letter-spacing: 0.025em;
+}
+
+.pay-button:hover {
+  background-color: #4338ca;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.pay-button:active {
+  background-color: #3730a3;
+  transform: translateY(0);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.pay-button:focus {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+} */
+
+/* Pay Button */
+.pay-button {
+  width: 100%;
+  background-color: #28A745; /* default “go/positive” green */
+  color: #ffffff;
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 200ms ease-in-out, box-shadow 200ms ease-in-out;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  font-size: 1.125rem;       /* 18px */
+  letter-spacing: 0.025em;
+}
+
+/* Hover state: ~15% darker for clear feedback */
+.pay-button:hover {
+  background-color: #218838;
+}
+
+/* Active (pressed) state: a bit darker still */
+.pay-button:active {
+  background-color: #1E7E34;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1),
+              0 1px 2px -1px rgba(0, 0, 0, 0.06);
+  transform: translateY(1px);
+}
+
+/* Focus-visible for keyboard navigation (ensures high-contrast outline) */
+.pay-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5),
+              0 4px 6px -1px rgba(0, 0, 0, 0.1),
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Disabled state: reduce opacity, remove pointer events */
+.pay-button:disabled,
+.pay-button[aria-disabled="true"] {
+  background-color: #94D3A2; /* lighter green, still ≥4.5:1 contrast with white */
+  cursor: not-allowed;
+  opacity: 0.65;
+  box-shadow: none;
+}
+
+
+/* Flex row for Pay button and QR code */
+.pay-qr-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  justify-content: space-between;
+}
+
+/* Make pay button and QR code share space */
+.pay-button {
+  flex: 1 1 180px;
+  max-width: 220px;
+  margin: 0;
+}
+
+.pay-qr-inline {
+  flex: 1 1 200px;
+  margin: 0;
+  padding: 0;
+  min-width: 120px;
+}
+
+/* Reduce QR code margin for inline display */
+.pay-qr-inline .qr-code {
+  margin-top: 0;
+  max-width: 120px;
+}
+
+/* Compact invoice card */
+.invoice-card {
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+}
+
+/* Reduce padding for invoice rows */
+.invoice-row {
+  padding: 0.75rem 1rem;
+  gap: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .invoice-container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .invoice-wrapper {
+    max-width: 100%;
+  }
+  
+  .invoice-title {
+    font-size: 1.5rem;
+  }
+  
+  .invoice-row {
+    padding: 1.25rem;
+    align-items: flex-start;
+  }
+  
+  .invoice-label {
+    font-size: 0.875rem;
+    min-width: unset;
+    margin-bottom: 0.25rem;
+  }
+  
+  .invoice-value {
+    font-size: 1rem;
+    margin-left: 0;
+  }
+  
+  .invoice-value-amount {
+    font-size: 1.125rem;
+  }
+  
+  .pay-button {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+  
+  .pay-qr-row {
+    flex-direction: row;           /* Keep row direction */
+    align-items: center;
+    gap: 0.5rem;                   /* Reduce gap for small screens */
+  }
+  .pay-button,
+  .pay-qr-inline {
+    max-width: 50%;                /* Each takes half width */
+    width: 50%;
+  }
+  .pay-qr-inline .qr-code {
+    max-width: 100px;              /* Smaller QR on phone */
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  
+  
+  .invoice-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .invoice-title {
+    font-size: 1.375rem;
+  }
+  
+  .invoice-number {
+    font-size: 0.875rem;
+  }
+  
+  .invoice-row {
+    padding: 1rem;
+  }
+  
+  .invoice-label {
+    font-size: 0.8125rem;
+  }
+  
+  .invoice-value {
+    font-size: 0.9375rem;
+  }
+  
+  .invoice-value-amount {
+    font-size: 1rem;
+  }
+  
+  .pay-button {
+    padding: 0.875rem;
+    font-size: 0.9375rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .invoice-card {
+    border: 2px solid #000000;
+  }
+  
+  .invoice-row:not(:last-child) {
+    border-bottom: 2px solid #000000;
+  }
+  
+  .pay-button {
+    border: 2px solid #000000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-animate {
+    animation: none;
+  }
+  
+  .pay-button {
+    transition: none;
+  }
+  
+  .pay-button:hover {
+    transform: none;
+  }
+}
+
+/* ────── QR‐CODE STYLING ────── */
+.qr-container {
+  /* margin-top: 2rem; */
+  text-align: center;
+}
+
+.qr-status {
+  font-size: 0.9rem;
+  color: #6b7280; /* grayish text while loading */
+}
+
+.qr-error {
+  font-size: 0.9rem;
+  color: #dc2626; /* red if QR fetch failed */
+}
+
+.qr-code {
+  margin-top: 1rem;
+  max-width: 200px;    /* shrink if too large */
+  height: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
