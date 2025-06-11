@@ -4,16 +4,22 @@ import axios from "axios";
 import "./InvoiceDetails.css";
 
 // ====== CONFIGURABLE VARIABLES ======
+// const INVOICE_API_BASE = "http://api.sampoornafeeds.in:7048/BC230/ODataV4/";
+// const COMPANY_NAME = "Sampoorna Feeds Pvt. Ltd";
+// const INVOICE_ENDPOINT = `API_QRcodeforInvoice?company=%27${encodeURIComponent(
+//   COMPANY_NAME
+// )}%27`;
+
 const INVOICE_API_BASE = "http://api.sampoornafeeds.in:7048/BC230/ODataV4/";
-const COMPANY_NAME = "Sampoorna Feeds Pvt. Ltd";
-const INVOICE_ENDPOINT = `API_QRcodeforInvoice?company=%27${encodeURIComponent(
-  COMPANY_NAME
-)}%27`;
+
 const AUTH_HEADER = "Basic Sm9icXVldWU6SW5kaWFAMTJnb29k";
 
 // New: QR‐code API base
-// const PAYMENT_QR_API = "https://api.sampoornafeeds.com/qrcode/payment";
-const PAYMENT_QR_API = "http://0.0.0.0:8000/qrcode/payment";
+// Production QR‐code API
+const PAYMENT_QR_API = "https://erp.sampoornafeeds.in/qrcode/payment";
+
+// Local testing QR‐code API
+// const PAYMENT_QR_API = "http://0.0.0.0:8000/qrcode/payment";
 
 const tableFields = [
   { label: "Supplier GSTIN", key: "Supplier GSTIN" },
@@ -55,7 +61,8 @@ const LoadingSkeleton = () => (
 );
 
 export default function InvoiceDetails() {
-  const { invoiceNumber } = useParams();
+  // const { invoiceNumber } = useParams();
+  const { companyName, invoiceNumber } = useParams();
   const [loading, setLoading] = useState(true);
   const [invoice, setInvoice] = useState(null);
   const [error, setError] = useState("");
@@ -75,7 +82,8 @@ export default function InvoiceDetails() {
       setQrError("");
       setQrLoading(false);
 
-      const url = `${INVOICE_API_BASE}${INVOICE_ENDPOINT}`;
+      // const url = `${INVOICE_API_BASE}${INVOICE_ENDPOINT}`;
+      const url = `${INVOICE_API_BASE}API_QRcodeforInvoice?company=%27${encodeURIComponent(companyName)}%27`;
       // IMPORTANT: Use the typo key as per API requirement!
       const payload = { inveoiceNo: invoiceNumber };
 
@@ -239,7 +247,7 @@ export default function InvoiceDetails() {
                     : new Intl.NumberFormat("en-IN", {
                         style: "currency",
                         currency: "INR",
-                        minimumFractionDigits: 1,
+                        minimumFractionDigits: 2,
                       }).format(num);
                 }
 
@@ -255,7 +263,7 @@ export default function InvoiceDetails() {
                           : "invoice-value-empty"
                       }`}
                     >
-                      {hasValue ? value : "Not available"}
+                      {hasValue ? value : ""}
                     </div>
                   </div>
                 );
@@ -271,13 +279,13 @@ export default function InvoiceDetails() {
                 rel="noopener noreferrer"
                 style={{ textDecoration: "none" }}
               >
-                Pay Now&nbsp;
+                Pay Now <br></br>&nbsp;
                 {
                   invoice["Invoice Value"]
                     ? new Intl.NumberFormat("en-IN", {
                         style: "currency",
                         currency: "INR",
-                        minimumFractionDigits: 1,
+                        minimumFractionDigits: 2,
                       }).format(Number(String(invoice["Invoice Value"]).replace(/[^\d.]/g, "")))
                     : ""
                 }
