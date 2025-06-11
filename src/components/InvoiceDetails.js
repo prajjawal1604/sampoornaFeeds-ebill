@@ -188,7 +188,7 @@ export default function InvoiceDetails() {
   const getUpiUrl = (invoice) => {
     if (!invoice) return "#";
     const upiId = invoice["Payee UPI ID"];
-    const payeeName = encodeURIComponent(invoice["Supplier name"] || COMPANY_NAME);
+    const payeeName = encodeURIComponent(invoice["Supplier name"]);
     let amount = invoice["Invoice Value"] ?? "";
     amount = String(amount).replace(/[^\d.]/g, "");
     if (amount) amount = parseFloat(amount).toFixed(2);
