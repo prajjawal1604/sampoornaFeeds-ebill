@@ -10,8 +10,8 @@ import "./InvoiceDetails.css";
 //   COMPANY_NAME
 // )}%27`;
 
-const INVOICE_API_BASE = "http://api.sampoornafeeds.in:7048/BC230/ODataV4/";
-
+// const INVOICE_API_BASE = "http://api.sampoornafeeds.in:7048/BC230/ODataV4/";
+const INVOICE_API_BASE = "/odata/BC230/ODataV4/";
 const AUTH_HEADER = "Basic Sm9icXVldWU6SW5kaWFAMTJnb29k";
 
 // New: QR‐code API base
