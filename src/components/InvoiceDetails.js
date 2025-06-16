@@ -10,7 +10,7 @@ import "./InvoiceDetails.css";
 //   COMPANY_NAME
 // )}%27`;
 
-const INVOICE_API_BASE = "http://api.sampoornafeeds.in:7048/BC230/ODataV4/";
+const INVOICE_API_BASE = "https://erp.sampoornafeeds.in/qrcode/invoice";
 // const INVOICE_API_BASE = "/odata/BC230/ODataV4/";
 const AUTH_HEADER = "Basic Sm9icXVldWU6SW5kaWFAMTJnb29k";
 
@@ -83,9 +83,9 @@ export default function InvoiceDetails() {
       setQrLoading(false);
 
       // const url = `${INVOICE_API_BASE}${INVOICE_ENDPOINT}`;
-      const url = `${INVOICE_API_BASE}API_QRcodeforInvoice?company=%27${encodeURIComponent(companyName)}%27`;
+      const url = `${INVOICE_API_BASE}`;
       // IMPORTANT: Use the typo key as per API requirement!
-      const payload = { inveoiceNo: invoiceNumber };
+      const payload = { company: companyName, inveoiceNo: invoiceNumber };
 
       console.log("[InvoiceDetails] Hitting Invoice API:", url, payload);
 
