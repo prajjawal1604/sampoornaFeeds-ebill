@@ -10,7 +10,7 @@ import "./InvoiceDetails.css";
 //   COMPANY_NAME
 // )}%27`;
 
-const INVOICE_API_BASE = "https://erp.sampoornafeeds.in/qrcode/invoice";
+const INVOICE_API_BASE = "https://erp.sampoornafeeds.in/invoice";
 // const INVOICE_API_BASE = "/odata/BC230/ODataV4/";
 const AUTH_HEADER = "Basic Sm9icXVldWU6SW5kaWFAMTJnb29k";
 
